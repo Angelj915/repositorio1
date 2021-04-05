@@ -5,7 +5,7 @@ function estado() {
 	console.log("estado");
 	//document.getElementById("sensor").innerHTML="CLICK";
 	message = new Paho.MQTT.Message("estado");
-    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
+    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
     	client.send(message);
   
 }
@@ -30,7 +30,8 @@ function historial(){
 
   // set callback handlers
   client.onConnectionLost = onConnectionLost;
-  client.onMessageArrived = onMessageArrived;
+  client.onMessageArrived1 = onMessageArrived;
+  client.onMessageArrived2 = onMessageArrived;
   var options = {
    useSSL: false,
     userName: "ajmorocho.fie@unach.edu.ec",
@@ -71,7 +72,7 @@ function historial(){
     console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor1").innerHTML=message.payloadString;
   }
-  function onMessageArrived(message) {
+  function onMessageArrived2(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor2").innerHTML=message.payloadString;
   }
