@@ -1,11 +1,11 @@
 //https://www.eclipse.org/paho/clients/js/
 
-function click() {
+function estado() {
 	//alert("clic");
-	console.log("click");
+	console.log("estado");
 	//document.getElementById("sensor").innerHTML="CLICK";
-	message = new Paho.MQTT.Message("click");
-    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
+	message = new Paho.MQTT.Message("estado");
+    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
     	client.send(message);
   
 }
