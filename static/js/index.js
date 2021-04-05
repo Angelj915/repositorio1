@@ -1,20 +1,20 @@
 //https://www.eclipse.org/paho/clients/js/
 
-function LED1_On() {
-	//alert("led on");
-	console.log("led on");
-	//document.getElementById("sensor").innerHTML="led on";
-	message = new Paho.MQTT.Message("ON");
+function click() {
+	//alert("clic");
+	console.log("click");
+	//document.getElementById("sensor").innerHTML="CLICK";
+	message = new Paho.MQTT.Message("click");
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
-    	client.send(message);
+    	client.send(message1);
   
 }
-function LED1_Off(){	
-	//alert("led off");
-	console.log("led off");
-	message = new Paho.MQTT.Message("OFF");
-    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
-    	client.send(message);
+function historial(){	
+	//alert("clic");
+	console.log("historial");
+	message = new Paho.MQTT.Message("historial");
+    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
+    	client.send(message2);
 	//document.getElementById("sensor").innerHTML="led off";
 }
 
@@ -47,9 +47,9 @@ function LED1_Off(){
     // Once a connection has been made, make a subscription and send a message.
     console.log("Conectado...");
 	
-    client.subscribe("ajmorocho.fie@unach.edu.ec/tema1");
-    message = new Paho.MQTT.Message("hola desde la web");
-    message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
+    client.subscribe("ajmorocho.fie@unach.edu.ec/tema2");
+    message = new Paho.MQTT.Message("RUNNING...");
+    message.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
     client.send(message);
 	
   }
@@ -69,6 +69,10 @@ function LED1_Off(){
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
-	  document.getElementById("sensor").innerHTML=message.payloadString;
+	  document.getElementById("sensor1").innerHTML=message.payloadString;
+  }
+  function onMessageArrived(message) {
+    console.log("onMessageArrived:"+message.payloadString);
+	  document.getElementById("sensor2").innerHTML=message.payloadString;
   }
   
