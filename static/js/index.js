@@ -6,7 +6,7 @@ function click() {
 	//document.getElementById("sensor").innerHTML="CLICK";
 	message = new Paho.MQTT.Message("click");
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
-    	client.send(message1);
+    	client.send(message);
   
 }
 function historial(){	
@@ -14,7 +14,7 @@ function historial(){
 	console.log("historial");
 	message = new Paho.MQTT.Message("historial");
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
-    	client.send(message2);
+    	client.send(message);
 	//document.getElementById("sensor").innerHTML="led off";
 }
 
