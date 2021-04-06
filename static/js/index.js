@@ -9,6 +9,7 @@ function estado() {
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
     	client.send(message);
 	counter=counter+1;
+	transition-delay: 2s;
 	}
 	if(counter==1){
 	console.log("estado1");
