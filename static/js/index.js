@@ -2,23 +2,15 @@
 
 function estado() {
 	//alert("clic");
-	if(counter==0){
-	console.log("estado0");
+	
+	
+	console.log("estado");
 	//document.getElementById("sensor").innerHTML="CLICK";
-	message = new Paho.MQTT.Message("estado0");
+	message = new Paho.MQTT.Message("estado");
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
     	client.send(message);
-	counter=counter+1;
-	transition-delay= 2s;
-	}
-	if(counter==1){
-	console.log("estado1");
-	//document.getElementById("sensor").innerHTML="CLICK";
-	message = new Paho.MQTT.Message("estado1");
-    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
-    	client.send(message);
-	counter=0;
-	}
+	
+	
   
 }
 function historial(){	
