@@ -7,7 +7,7 @@ function estado() {
 	console.log("estado");
 	//document.getElementById("sensor").innerHTML="CLICK";
 	message = new Paho.MQTT.Message("estado");
-    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
+    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
     	client.send(message);
 	
 	
