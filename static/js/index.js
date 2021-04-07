@@ -6,9 +6,9 @@ function estado() {
 	
 	console.log("estado");
 	//document.getElementById("sensor").innerHTML="CLICK";
-	message = new Paho.MQTT.Message("estado");
-    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
-    	client.send(message);
+	message1 = new Paho.MQTT.Message("estado");
+    	message1.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
+    	client.send(message1);
 	
 	
   
@@ -16,9 +16,9 @@ function estado() {
 function historial(){	
 	//alert("clic");
 	console.log("historial");
-	message = new Paho.MQTT.Message("historial");
-    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
-    	client.send(message);
+	message2 = new Paho.MQTT.Message("historial");
+    	message2.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
+    	client.send(message2);
 	//document.getElementById("sensor").innerHTML="led off";
 }
 
@@ -35,6 +35,7 @@ function historial(){
   // set callback handlers
   client.onConnectionLost = onConnectionLost;
   client.onMessageArrived = onMessageArrived;
+
   var options = {
    useSSL: false,
     userName: "ajmorocho.fie@unach.edu.ec",
@@ -53,9 +54,9 @@ function historial(){
 	
     client.subscribe("ajmorocho.fie@unach.edu.ec/tema1");
     client.subscribe("ajmorocho.fie@unach.edu.ec/tema2");
-    message = new Paho.MQTT.Message("RUNNING...");
-    message.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
-    client.send(message);
+    message3 = new Paho.MQTT.Message("RUNNING...");
+    message3.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
+    client.send(message3);
 	
   }
 
@@ -74,7 +75,8 @@ function historial(){
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
-	  document.getElementById("sensor1").innerHTML=message.payloadString;
-	  document.getElementById("sensor2").innerHTML=message.payloadString;
+	  document.getElementById("sensor1").innerHTML=message1.payloadString;
+	  document.getElementById("sensor2").innerHTML=message2.payloadString;
   }
+
 
