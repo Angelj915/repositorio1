@@ -51,6 +51,7 @@ function historial(){
     // Once a connection has been made, make a subscription and send a message.
     console.log("Conectado...");
 	
+    client.subscribe("ajmorocho.fie@unach.edu.ec/tema1");
     client.subscribe("ajmorocho.fie@unach.edu.ec/tema2");
     message = new Paho.MQTT.Message("RUNNING...");
     message.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
