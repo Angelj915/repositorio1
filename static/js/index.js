@@ -50,10 +50,6 @@ function historial(){
   client2 = new Paho.MQTT.Client("maqiatto.com", 8883, "web_" + parseInt(Math.random() * 100, 10));
 
   // set callback handlers
-  client1.onConnectionLost = onConnectionLost1;
-  client1.onMessageArrived = onMessageArrived1;
-  client2.onConnectionLost = onConnectionLost2;
-  client2.onMessageArrived = onMessageArrived2;
 
 
   var options = {
@@ -85,37 +81,43 @@ function historial(){
   }
 
   // called when the client loses its connection
-  function onConnectionLost1(responseObject) {
-    if (responseObject.errorCode !== 0) {
-      console.log("onConnectionLost:"+responseObject.errorMessage);
-    }
-  }
 
-  function onConnectionLost2(responseObject) {
-    if (responseObject.errorCode !== 0) {
+
+
+
+client1.onConnectionLost = function (responseObject) {
+     if (responseObject.errorCode !== 0) {
       console.log("onConnectionLost:"+responseObject.errorMessage);
     }
-  }
+}
+
+client2.onConnectionLost = function (responseObject) {
+   if (responseObject.errorCode !== 0) {
+      console.log("onConnectionLost:"+responseObject.errorMessage);
+    }
+}
 
   // called when a message arrives
-  function onMessageArrived1(message) {
-    console.log("onMessageArrived1:"+message.payloadString);
-	  msm=message.payloadString;
+
+
+client1.onMessageArrived = function (message) {
+  console.log("Message Arrived: "+message.payloadString);
+          msm=message.payloadString;
 	  if(msm=="ON"){
 		document.getElementById("sensor1").innerHTML=msm;  
 	  }
 	   if(msm=="OFF"){
 		document.getElementById("sensor1").innerHTML=msm;  
-	  }
-	  
-  }
+	  }	
+}
 
 
-  function onMessageArrived2(message) {
-    console.log("onMessageArrived2:"+message.payloadString);
+client2.onMessageArrived = function (message) {
+  console.log("Message Arrived: "+message.payloadString);
+	
 	  msm=message.payloadString;
-	  document.getElementById("sensor2").innerHTML=msm;  
-	 
-  }
+	  document.getElementById("sensor2").innerHTML=msm;
+}
+
 
 
