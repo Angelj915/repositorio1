@@ -99,7 +99,7 @@ function historial(){
 
   // called when a message arrives
   function onMessageArrived1(message) {
-    console.log("onMessageArrived:"+message.payloadString);
+    console.log("onMessageArrived1:"+message.payloadString);
 	  msm=message.payloadString;
 	  if(msm=="ON"){
 		document.getElementById("sensor1").innerHTML=msm;  
@@ -110,8 +110,9 @@ function historial(){
 	  
   }
 
+
   function onMessageArrived2(message) {
-    console.log("onMessageArrived:"+message.payloadString);
+    console.log("onMessageArrived2:"+message.payloadString);
 	  msm=message.payloadString;
 	  document.getElementById("sensor2").innerHTML=msm;  
 	 
