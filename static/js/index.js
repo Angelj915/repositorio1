@@ -4,7 +4,7 @@ function estado() {
 	//alert("clic");
 	
 	cont=0;
-	if(cont=1){
+	if(cont==1){
 	console.log("OFF");
 	//document.getElementById("sensor").innerHTML="CLICK";
 	message = new Paho.MQTT.Message("OFF");
@@ -13,7 +13,7 @@ function estado() {
 	cont=2;
 	}
 	
-	if(cont=0){
+	if(cont==0){
 	console.log("ON");
 	//document.getElementById("sensor").innerHTML="CLICK";
 	message = new Paho.MQTT.Message("ON");
