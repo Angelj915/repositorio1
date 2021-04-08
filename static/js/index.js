@@ -97,8 +97,13 @@ function historial(){
 	   if(msm=="OFF"){
 		document.getElementById("sensor1").innerHTML=msm;  
 	  }
-	  if(msm[0]=="1"){ 
-		document.getElementById("sensor2").innerHTML=msm; 
+	  if(msm[0]=="1"){
+		  for (i=1;i<msm.length;i++){ 
+   	document.getElementById("sensor2").innerHTML=msm[i]; 
+			  
+   
+         }
+		
 		  
 	  }
 	  
