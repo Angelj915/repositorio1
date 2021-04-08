@@ -61,8 +61,7 @@ function historial(){
   }
 
   // connect the client
-  client1.connect(options);
-  client2.connect(options);
+
    
   // called when the client connects
   function onConnect() {
