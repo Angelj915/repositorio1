@@ -1,9 +1,9 @@
 //https://www.eclipse.org/paho/clients/js/
-
+var cont=0;
 function estado() {
 	//alert("clic");
 	
-	cont=0;
+	
 	if(cont==1){
 	console.log("OFF");
 	//document.getElementById("sensor").innerHTML="CLICK";
