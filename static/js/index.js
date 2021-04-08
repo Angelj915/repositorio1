@@ -46,11 +46,15 @@ function historial(){
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
   var counter=0;
-  client = new Paho.MQTT.Client("maqiatto.com", 8883, "web_" + parseInt(Math.random() * 100, 10));
+  client1 = new Paho.MQTT.Client("maqiatto.com", 8883, "web_" + parseInt(Math.random() * 100, 10));
+  client2 = new Paho.MQTT.Client("maqiatto.com", 8883, "web_" + parseInt(Math.random() * 100, 10));
 
   // set callback handlers
-  client.onConnectionLost = onConnectionLost;
-  client.onMessageArrived = onMessageArrived;
+  client1.onConnectionLost = onConnectionLost1;
+  client1.onMessageArrived = onMessageArrived1;
+  client2.onConnectionLost = onConnectionLost2;
+  client2.onMessageArrived = onMessageArrived2;
+
 
   var options = {
    useSSL: false,
@@ -61,18 +65,17 @@ function historial(){
   }
 
   // connect the client
-  client.connect(options);
+  client1.connect(options);
+  client2.connect(options);
    
   // called when the client connects
   function onConnect() {
     // Once a connection has been made, make a subscription and send a message.
     console.log("Conectado...");
 	
-    client.subscribe("ajmorocho.fie@unach.edu.ec/tema1");
-    client.subscribe("ajmorocho.fie@unach.edu.ec/tema2");
-    message = new Paho.MQTT.Message("RUNNING...");
-    message.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
-    client.send(message);
+    client1.subscribe("ajmorocho.fie@unach.edu.ec/tema1");
+    client2.subscribe("ajmorocho.fie@unach.edu.ec/tema2");
+    
 	
   }
 
@@ -82,19 +85,22 @@ function historial(){
   }
 
   // called when the client loses its connection
-  function onConnectionLost(responseObject) {
+  function onConnectionLost1(responseObject) {
+    if (responseObject.errorCode !== 0) {
+      console.log("onConnectionLost:"+responseObject.errorMessage);
+    }
+  }
+
+  function onConnectionLost2(responseObject) {
     if (responseObject.errorCode !== 0) {
       console.log("onConnectionLost:"+responseObject.errorMessage);
     }
   }
 
   // called when a message arrives
-  function onMessageArrived(message) {
+  function onMessageArrived1(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	  msm=message.payloadString;
-	  if(msm[0]=="1"){
-		document.getElementById("sensor2").innerHTML=msm;  
-	  }
 	  if(msm=="ON"){
 		document.getElementById("sensor1").innerHTML=msm;  
 	  }
@@ -102,6 +108,13 @@ function historial(){
 		document.getElementById("sensor1").innerHTML=msm;  
 	  }
 	  
+  }
+
+  function onMessageArrived2(message) {
+    console.log("onMessageArrived:"+message.payloadString);
+	  msm=message.payloadString;
+	  document.getElementById("sensor2").innerHTML=msm;  
+	 
   }
 
 
