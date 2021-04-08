@@ -99,11 +99,9 @@ function historial(){
 	  }
 	  if(msm[0]=="1"){
 		  for (i=1;i<msm.length;i++){ 
-   	document.getElementById("sensor2").innerHTML=msm[i]; 
-			  
-   
+   	    msm[i-1]=msm[i]; 
          }
-		
+	document.getElementById("sensor2").innerHTML=msm; 	
 		  
 	  }
 	  
