@@ -9,7 +9,7 @@ function estado() {
 	//document.getElementById("sensor").innerHTML="CLICK";
 	message = new Paho.MQTT.Message("OFF");
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
-    	client1.send(message);
+    	client.send(message);
 	cont=2;
 	}
 	
@@ -18,7 +18,7 @@ function estado() {
 	//document.getElementById("sensor").innerHTML="CLICK";
 	message = new Paho.MQTT.Message("ON");
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
-    	client1.send(message);
+    	client.send(message);
 	cont=1;
         
 	}
@@ -34,7 +34,7 @@ function historial(){
 	console.log("historial");
 	message = new Paho.MQTT.Message("historial");
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
-    	client2.send(message);
+    	client.send(message);
 	//document.getElementById("sensor").innerHTML="led off";
 }
 
@@ -46,10 +46,10 @@ function historial(){
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
   var counter=0;
-  client1 = new Paho.MQTT.Client("maqiatto.com", 8883, "web_" + parseInt(Math.random() * 100, 10));
-  client2 = new Paho.MQTT.Client("maqiatto.com", 8883, "web_" + parseInt(Math.random() * 100, 10));
-
-  // set callback handlers
+  client = new Paho.MQTT.Client("maqiatto.com", 8883, "web_" + parseInt(Math.random() * 100, 10));
+   // set callback handlers
+  client.onConnectionLost = onConnectionLost;
+  client.onMessageArrived = onMessageArrived;
 
 
   var options = {
@@ -61,15 +61,15 @@ function historial(){
   }
 
   // connect the client
-
+  client.connect(options);
    
   // called when the client connects
   function onConnect() {
     // Once a connection has been made, make a subscription and send a message.
     console.log("Conectado...");
 	
-    client1.subscribe("ajmorocho.fie@unach.edu.ec/tema1");
-    client2.subscribe("ajmorocho.fie@unach.edu.ec/tema2");
+    client.subscribe("ajmorocho.fie@unach.edu.ec/tema1");
+    client.subscribe("ajmorocho.fie@unach.edu.ec/tema2");
     
 	
   }
@@ -80,43 +80,28 @@ function historial(){
   }
 
   // called when the client loses its connection
-
-
-
-
-client1.onConnectionLost = function (responseObject) {
-     if (responseObject.errorCode !== 0) {
+  function onConnectionLost(responseObject) {
+    if (responseObject.errorCode !== 0) {
       console.log("onConnectionLost:"+responseObject.errorMessage);
     }
-}
+  }
 
-client2.onConnectionLost = function (responseObject) {
-   if (responseObject.errorCode !== 0) {
-      console.log("onConnectionLost:"+responseObject.errorMessage);
-    }
-}
 
   // called when a message arrives
-
-
-client1.onMessageArrived = function (message) {
-  console.log("Message Arrived: "+message.payloadString);
-          msm=message.payloadString;
+  function onMessageArrived(message) {
+    console.log("onMessageArrived:"+message.payloadString);
+	  msm=message.payloadString;
 	  if(msm=="ON"){
 		document.getElementById("sensor1").innerHTML=msm;  
 	  }
 	   if(msm=="OFF"){
 		document.getElementById("sensor1").innerHTML=msm;  
-	  }	
-}
-
-
-client2.onMessageArrived = function (message) {
-  console.log("Message Arrived: "+message.payloadString);
-	
-	  msm=message.payloadString;
-	  document.getElementById("sensor2").innerHTML=msm;
-}
-
+	  }
+	  if(msm[0]=="1"){ 
+		document.getElementById("sensor2").innerHTML=msm; 
+		  
+	  }
+	  
+  }
 
 
