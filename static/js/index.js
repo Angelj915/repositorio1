@@ -3,13 +3,29 @@
 function estado() {
 	//alert("clic");
 	
+	cont=0;
+	if(cont=1){
+	console.log("ON");
+	//document.getElementById("sensor").innerHTML="CLICK";
+	message = new Paho.MQTT.Message("OFF");
+    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
+    	client.send(message);
+	cont=2;
+	}
 	
+	if(cont=0){
 	console.log("ON");
 	//document.getElementById("sensor").innerHTML="CLICK";
 	message = new Paho.MQTT.Message("ON");
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
     	client.send(message);
+	cont=1;
+        
+	}
 	
+	if(cont==2){
+	cont=0;	
+	}
 	
   
 }
