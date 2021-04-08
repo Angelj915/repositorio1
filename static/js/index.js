@@ -5,7 +5,7 @@ function estado() {
 	
 	cont=0;
 	if(cont=1){
-	console.log("ON");
+	console.log("OFF");
 	//document.getElementById("sensor").innerHTML="CLICK";
 	message = new Paho.MQTT.Message("OFF");
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
