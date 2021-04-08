@@ -9,7 +9,7 @@ function estado() {
 	//document.getElementById("sensor").innerHTML="CLICK";
 	message = new Paho.MQTT.Message("OFF");
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
-    	client.send(message);
+    	client1.send(message);
 	cont=2;
 	}
 	
@@ -18,7 +18,7 @@ function estado() {
 	//document.getElementById("sensor").innerHTML="CLICK";
 	message = new Paho.MQTT.Message("ON");
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
-    	client.send(message);
+    	client1.send(message);
 	cont=1;
         
 	}
@@ -34,7 +34,7 @@ function historial(){
 	console.log("historial");
 	message = new Paho.MQTT.Message("historial");
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
-    	client.send(message);
+    	client2.send(message);
 	//document.getElementById("sensor").innerHTML="led off";
 }
 
