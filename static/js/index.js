@@ -75,8 +75,17 @@ function historial(){
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
-	  document.getElementById("sensor1").innerHTML=message.payloadString[1];
-	  document.getElementById("sensor2").innerHTML=message.payloadString;
+	  msm=message.payloadString;
+	  if(msm[0]=="1"){
+		document.getElementById("sensor2").innerHTML=msm;  
+	  }
+	  if(msm=="ON"){
+		document.getElementById("sensor1").innerHTML=msm;  
+	  }
+	   if(msm=="OFF"){
+		document.getElementById("sensor1").innerHTML=msm;  
+	  }
+	  
   }
 
 
