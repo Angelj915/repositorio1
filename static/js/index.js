@@ -98,11 +98,9 @@ function historial(){
 		document.getElementById("sensor1").innerHTML=msm;  
 	  }
 	  if(msm[0]=="1"){
-		  var sms=[];
-		  for (i=1;i<msm.length;i++){ 
-   	          sms[i-1]=msm[i]; 
-         }
-	document.getElementById("sensor2").innerHTML=sms; 	
+		 
+		
+	document.getElementById("sensor2").innerHTML=msm; 	
 		  
 	  }
 	  
