@@ -91,16 +91,22 @@ function historial(){
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	  msm=message.payloadString;
-	  if(msm=="ON"){
+	  if(msm=="Sensor1-ON"){
 		document.getElementById("sensor1").innerHTML=msm;  
 	  }
-	   if(msm=="OFF"){
+	   if(msm=="Sensor1-OFF"){
 		document.getElementById("sensor1").innerHTML=msm;  
+	  }
+	  if(msm=="Sensor2-ON"){
+		document.getElementById("sensor2").innerHTML=msm;  
+	  }
+	   if(msm=="Sensor2-OFF"){
+		document.getElementById("sensor2").innerHTML=msm;  
 	  }
 	  if(msm[0]=="1"){
 		 
 		
-	document.getElementById("sensor2").innerHTML=msm; 	
+	         document.getElementById("sensor3").innerHTML=msm; 	
 		  
 	  }
 	  
