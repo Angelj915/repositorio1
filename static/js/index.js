@@ -15,7 +15,7 @@ function historial2(){
 	//alert("clic");
 	console.log("historial2");
 	message = new Paho.MQTT.Message("historial2");
-    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema2";
+    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
     	client.send(message);
 	//document.getElementById("sensor").innerHTML="led off";
 }
@@ -51,8 +51,6 @@ function historial2(){
     console.log("Conectado...");
 	
     client.subscribe("ajmorocho.fie@unach.edu.ec/tema1");
-    client.subscribe("ajmorocho.fie@unach.edu.ec/tema2");
-    
 	
   }
 
