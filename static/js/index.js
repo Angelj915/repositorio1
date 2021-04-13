@@ -76,7 +76,7 @@ function historial2(){
 	  if(msm[0]=="1"){
 		document.getElementById("sensor1").innerHTML=msm;  
 	  }
-	  if(msm[1]=="2"){
+	  if(msm[0]=="2"){
 		document.getElementById("sensor2").innerHTML=msm;  
 	  }
 	  
