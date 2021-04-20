@@ -84,7 +84,7 @@ function historial2(){
 		document.getElementById("sensor1").innerHTML=msm;  
 	  }
 	  if(msm=="SEN2-ON"){
-		document.getElementById("sensor1").innerHTML=msm;  
+		document.getElementById("sensor2").innerHTML=msm;  
 	  }
 	  if(msm=="SEN2-OFF"){
 		document.getElementById("sensor2").innerHTML=msm;  
