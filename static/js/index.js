@@ -51,7 +51,7 @@ function historial2(){
     console.log("Conectado...");
 	
     client.subscribe("ajmorocho.fie@unach.edu.ec/tema1");
-	
+    client.subscribe("ajmorocho.fie@unach.edu.ec/tema2");
   }
 
   function doFail(e){
@@ -77,16 +77,16 @@ function historial2(){
 	  if(msm[0]=="2"){
 		document.getElementById("sensor4").innerHTML=msm;  
 	  }
-	  if(msm[0]=="SEN1-ON"){
+	  if(msm=="SEN1-ON"){
 		document.getElementById("sensor1").innerHTML=msm;  
 	  }
-	  if(msm[0]=="SEN1-OFF"){
+	  if(msm=="SEN1-OFF"){
 		document.getElementById("sensor1").innerHTML=msm;  
 	  }
-	  if(msm[0]=="SEN2-ON"){
+	  if(msm=="SEN2-ON"){
 		document.getElementById("sensor1").innerHTML=msm;  
 	  }
-	  if(msm[0]=="SEN2-OFF"){
+	  if(msm=="SEN2-OFF"){
 		document.getElementById("sensor2").innerHTML=msm;  
 	  }
 	  
