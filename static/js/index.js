@@ -1,24 +1,17 @@
 //https://www.eclipse.org/paho/clients/js/
 var cont=0;
-function historial1() {
+function historial() {
 	//alert("clic");
 	
 	
-        console.log("historial1");
-	message = new Paho.MQTT.Message("historial1");
+        console.log("historial");
+	message = new Paho.MQTT.Message("historial");
     	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
     	client.send(message);
 	
   
 }
-function historial2(){	
-	//alert("clic");
-	console.log("historial2");
-	message = new Paho.MQTT.Message("historial2");
-    	message.destinationName = "ajmorocho.fie@unach.edu.ec/tema1";
-    	client.send(message);
-	//document.getElementById("sensor").innerHTML="led off";
-}
+
 
 
 
