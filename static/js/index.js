@@ -64,10 +64,10 @@ function historial() {
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	  msm=message.payloadString;
-	  if(msm[0]=="1"){
+	  if(msm[22]=="a"){
 		document.getElementById("sensor3").innerHTML=msm;  
 	  }
-	  if(msm[0]=="2"){
+	  if(msm[22]=="b"){
 		document.getElementById("sensor4").innerHTML=msm;  
 	  }
 	  if(msm=="SEN1-ON"){
