@@ -85,6 +85,9 @@ function off() {
 	  if(msm[0]=='D'){
           document.getElementById("sensor4").innerHTML=msm;  
 	  }
+	  if(msm[0]=='T'){
+          document.getElementById("tiempo").innerHTML=msm;  
+	  }
 
 
 	  
