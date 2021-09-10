@@ -72,11 +72,19 @@ function off() {
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	  msm=message.payloadString;
-	  console.log(msm[24]);
-	  document.getElementById("sensor1").innerHTML=msm[0]; 	
-	  document.getElementById("sensor2").innerHTML=msm[1];  
-	  document.getElementById("sensor3").innerHTML=msm[2];  
-          document.getElementById("sensor4").innerHTML=msm[3];  
+	  console.log(msm[0]);
+	  if(msm[0]=='A'){
+	  document.getElementById("sensor1").innerHTML=msm;
+	  }
+	  if(msm[0]=='B'){
+	  document.getElementById("sensor2").innerHTML=msm;  
+	  }
+	  if(msm[0]=='C'){
+	  document.getElementById("sensor3").innerHTML=msm;
+	  }
+	  if(msm[0]=='D'){
+          document.getElementById("sensor4").innerHTML=msm;  
+	  }
 
 
 	  
