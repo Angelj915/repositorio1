@@ -73,24 +73,13 @@ function off() {
     console.log("onMessageArrived:"+message.payloadString);
 	  msm=message.payloadString;
 	  console.log(msm[24]);
-	  if(msm[24]=="a"){
-		document.getElementById("sensor3").innerHTML=msm; 	
-	  }
-	  if(msm[24]=="b"){
-		document.getElementById("sensor4").innerHTML=msm;  
-	  }
-	  if(msm=="SEN1-ON"){
-		document.getElementById("sensor1").innerHTML=msm;  
-	  }
-	  if(msm=="SEN1-OFF"){
-		document.getElementById("sensor1").innerHTML=msm;  
-	  }
-	  if(msm=="SEN2-ON"){
-		document.getElementById("sensor2").innerHTML=msm;  
-	  }
-	  if(msm=="SEN2-OFF"){
-		document.getElementById("sensor2").innerHTML=msm;  
-	  }
+	  document.getElementById("sensor1").innerHTML=msm[0]; 	
+	  document.getElementById("sensor2").innerHTML=msm[1];  
+	  document.getElementById("sensor3").innerHTML=msm[2];  
+          document.getElementById("sensor4").innerHTML=msm[3];  
+
+
+	  
 	  
   }
 
